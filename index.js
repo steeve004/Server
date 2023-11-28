@@ -1,8 +1,7 @@
 // Group 3 Patient Management System
 
 let SERVER_NAME = 'patient-api'
-let PORT = 8000;
-let HOST = '127.0.0.1';
+let PORT = process.env.PORT ||  8000;
 
 const mongoose = require ("mongoose")
 
@@ -51,7 +50,7 @@ let restify = require('restify')
   // Create the restify server
   , server = restify.createServer({ name: SERVER_NAME })
 
-server.listen(PORT, HOST, function () {
+server.listen(PORT, function () {
   console.log('Server %s listening at %s', server.name, server.url)
   console.log('**** Resources: ****')
   console.log('********************')
